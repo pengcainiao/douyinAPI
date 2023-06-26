@@ -24,8 +24,8 @@ func (d DyServices) GetUrl(ctx *httprouter.Context, params form.GetUrlRequest) h
 }
 
 type T struct {
-	Level   int         `json:"level"`
-	TagId   interface{} `json:"tag_id"`
+	Level   float64       `json:"level"`
+	TagId   float64       `json:"tag_id"`
 	TagName interface{} `json:"tag_name"`
 }
 
@@ -41,8 +41,8 @@ func (d DyServices) GetWord(ctx *httprouter.Context, params form.GetUrlRequest) 
 
 	_ = json.Unmarshal([]byte(resp), &data)
 	for _, v := range data {
-		l, _ := v["level"].(int)
-		ti, _ := v["tag_id"].(int)
+		l, _ := v["level"].(float64)
+		ti, _ := v["tag_id"].(float64)
 		tn, _ := v["tag_name"].(string)
 
 		ss = append(ss, T{
